@@ -222,7 +222,7 @@ class ResourceValidator(Module):
 
         modules_filtered_address = get_ip_port(modules_adresses)
         score_dict: dict[int, float] = {}
-        node_scores = get_node_scores()
+        node_scores = get_node_scores(settings.dashboard_api_url)
         ip_port_dict= {f"{ip}:{port}": id for id, (ip, port) in modules_filtered_address.items()}
         for node in node_scores:
             node_id = node["node_id"]

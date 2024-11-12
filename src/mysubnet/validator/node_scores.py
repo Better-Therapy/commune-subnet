@@ -1,4 +1,5 @@
 import requests
+
 # GPU capability scores based on relative performance
 gpu_scores = {
     "NVIDIA A100": 10,
@@ -92,14 +93,11 @@ def process_node_data(nodes):
         # Append to the list with unique identifier and score
         node_scores.append({"node_id": unique_id, "score": score})
 
-    # Optionally, sort by score in descending order for easier comparison
-    node_scores.sort(key=lambda x: x["score"], reverse=True)
-
     return node_scores
 
 
-def get_node_scores():
-    node_data = requests.get("http://142.120.191.128:50923/nodes?view=summary")
+def get_node_scores(url: str):
+    node_data = requests.get(url)
     response_body = node_data.json()
     scores = process_node_data(response_body["data"]["summary"])
     return scores
