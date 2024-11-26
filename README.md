@@ -81,5 +81,5 @@ comx module register <name> <your_commune_key> --netuid <Bettertherapy netuid>
 
 ---
 
-Join Us and Grow with #Bettertherapy  
-At Bettertherapy, we aim to redefine mental health support by combining advanced AI with the power of human insight. Together, we can create a more compassionate and effective approach to well-being.
+Join Us and Grow with #BetterTherapy  
+At BetterTherapy, we aim to redefine mental health support by combining advanced AI with the power of human insight. Together, we can create a more compassionate and effective approach to well-being.
