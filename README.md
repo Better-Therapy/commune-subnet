@@ -28,7 +28,7 @@ For Validators:
 
 ---
 
-### Getting Started with Bettertherapy  
+### Getting Started with BetterTherapy  
 
 #### 1. Setting Up the Project  
 1. Clone the Repository:  
