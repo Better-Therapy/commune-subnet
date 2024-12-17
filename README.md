@@ -63,12 +63,14 @@ comx module register <name> <your_commune_key> --netuid <Bettertherapy netuid>
 
 ### Running the Miner  
 
-#### Option 1: Using the User Interface  
 1. Launch the miner:  
-   ```bash
-   poetry shell  
-   poetry run python -m src.mysubnet.miner
-   ```  
+   - Make sure you get a GPU/CPU device on cloud or you can even port forward your device to public IP
+   - Install `python 3.10.12` and Ray using `pip install -U "ray[data,train,tune,serve]` make sure the ray version is 2.40.0
+   - Connect to master node using the following command(make sure you have enough external/internal ports available) Number of required free ports : 10+ 2 x (no.of CPU + no.of GPU)
+      `ray start --address='188.166.188.104:6379' --node-ip-address="your-ip-address" --node-manage-port="your port specified while registering module"`
+   - make sure your ip address and port matches with the one that you used while registering module to our subnet
+   - once you are connected to ray, you are good to go
+   
 
 ### Running the Validator  
 
@@ -82,4 +84,4 @@ comx module register <name> <your_commune_key> --netuid <Bettertherapy netuid>
 ---
 
 Join Us and Grow with #Bettertherapy  
-At Bettertherapy, we aim to redefine mental health support by combining advanced AI with the power of human insight. Together, we can create a more compassionate and effective approach to well-being.
+At Bettertherapy, we aim to_ redefine mental health support by combining advanced AI with the power of human insight. Together, we can create a more compassionate and effective approach to well-being.

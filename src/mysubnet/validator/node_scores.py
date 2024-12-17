@@ -85,6 +85,8 @@ def process_node_data(nodes):
 
     for node in nodes:
         # Create a unique identifier using IP and nodeManagerPort
+        if "ip" not in node:
+            continue
         unique_id = f"{node['ip']}:{node['raylet']['nodeManagerPort']}"
 
         # Calculate the node's resource-based score

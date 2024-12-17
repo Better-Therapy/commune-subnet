@@ -25,7 +25,7 @@ import time
 
 from communex.client import CommuneClient
 from communex.module.client import ModuleClient
-from communex.module.module import Module 
+from communex.module.module import Module
 from communex.types import Ss58Address
 from substrateinterface import Keypair  # type: ignore
 
@@ -65,7 +65,7 @@ def set_weights(
     # Calculate the sum of all inverted scores
     scores = sum(score_dict.values())
 
-    # process the scores into weights of type dict[int, int] 
+    # process the scores into weights of type dict[int, int]
     # Iterate over the items in the score_dict
     for uid, score in score_dict.items():
         # Calculate the normalized weight as an integer
@@ -73,7 +73,6 @@ def set_weights(
 
         # Add the weighted score to the new dictionary
         weighted_scores[uid] = weight
-
 
     # filter out 0 weights
     weighted_scores = {k: v for k, v in weighted_scores.items() if v != 0}
@@ -113,7 +112,9 @@ def extract_address(string: str):
     return re.search(IP_REGEX, string)
 
 
-def get_subnet_netuid(clinet: CommuneClient, subnet_name: str = "replace-with-your-subnet-name"):
+def get_subnet_netuid(
+    clinet: CommuneClient, subnet_name: str = "replace-with-your-subnet-name"
+):
     """
     Retrieve the network UID of the subnet.
 
@@ -223,14 +224,18 @@ class ResourceValidator(Module):
         modules_filtered_address = get_ip_port(modules_adresses)
         score_dict: dict[int, float] = {}
         node_scores = get_node_scores(settings.dashboard_api_url)
-        ip_port_dict= {f"{ip}:{port}": id for id, (ip, port) in modules_filtered_address.items()}
+        ip_port_dict = {
+            f"{ip}:{port}": id for id, (ip, port) in modules_filtered_address.items()
+        }
         for node in node_scores:
             node_id = node["node_id"]
             score = node["score"]
             if node_id in ip_port_dict and score > 0:  # Only add if score > min_score
+                if node_id not in ip_port_dict:
+                    continue
                 id = ip_port_dict[node_id]
                 score_dict[id] = score
-                
+
         if not score_dict:
             log("No miner sharing resources")
             return None
