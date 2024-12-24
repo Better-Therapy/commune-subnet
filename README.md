@@ -74,9 +74,16 @@ comx module register <name> <your_commune_key> --netuid <Bettertherapy netuid>
 
 ### Running the Validator  
 
-## Run Using Script
+#### Install and Run Using Script
 `chmod +x run_btai_vali.sh`
 `./run_btai_vali.sh`
+
+#### Run Using script
+Make sure you are inside commune-subnet directory
+`chmod +x run_vali.sh`
+`./run_vali.sh`
+
+#### Run Step by Step
 
 1. Update `_config.py` with dashboard api and other subnet constants. (For now default the recommended config)  
 2. Run the validator script:  
