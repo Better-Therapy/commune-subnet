@@ -82,7 +82,7 @@ comx module register <name> <your_commune_key> --netuid <Bettertherapy netuid>
 2. Run the validator script:  
    ```bash
    poetry shell  
-   poetry run python -m src.betterTherapy.validator 
+   poetry run python -m src.betterTherapy.cli 
    ```  
 
 ---

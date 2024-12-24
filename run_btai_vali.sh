@@ -1,6 +1,6 @@
-#!/bin/bash
+# #!/bin/bash
 
-# Check if a key argument is provided
+# # Check if a key argument is provided
 if [ -z "$1" ]; then
   echo "Usage: $0 Validator key is required"
   sleep 2
@@ -20,4 +20,4 @@ cd commune-subnet || { echo "Failed to enter the directory"; exit 1; }
 poetry install
 
 # Activate Poetry shell and run the Python script with the provided key
-poetry run python -m src.betterTherapy.validator "$KEY"
+poetry run python -m src.betterTherapy.cli "$KEY"
