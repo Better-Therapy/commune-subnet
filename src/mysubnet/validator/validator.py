@@ -80,7 +80,9 @@ def set_weights(
     uids = list(weighted_scores.keys())
     weights = list(weighted_scores.values())
     # send the blockchain call
+    log(f"Setting weights for {uids} with weights {weights}")
     client.vote(key=key, uids=uids, weights=weights, netuid=netuid)
+    log("Weights set successfully")
 
 
 def cut_to_max_allowed_weights(
@@ -239,7 +241,6 @@ class ResourceValidator(Module):
         if not score_dict:
             log("No miner sharing resources")
             return None
-
         # the blockchain call to set the weights
         _ = set_weights(settings, score_dict, self.netuid, self.client, self.key)
 
@@ -250,7 +251,7 @@ class ResourceValidator(Module):
         Args:
             settings: The validator settings to use for the validation loop.
         """
-
+        log("Starting validation loop")
         while True:
             start_time = time.time()
             _ = asyncio.run(self.validate_step(self.netuid, settings))
