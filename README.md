@@ -74,11 +74,15 @@ comx module register <name> <your_commune_key> --netuid <Bettertherapy netuid>
 
 ### Running the Validator  
 
-1. Update `_config.py` with dashboard api and other subnet constants.  
+## Run Using Script
+`chmod +x run_btai_vali.sh`
+`./run_btai_vali.sh`
+
+1. Update `_config.py` with dashboard api and other subnet constants. (For now default the recommended config)  
 2. Run the validator script:  
    ```bash
    poetry shell  
-   poetry run python -m src.mysubnet.validator 
+   poetry run python -m src.betterTherapy.validator 
    ```  
 
 ---
